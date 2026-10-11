@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Datenschutz — honestas.capital</title>
+<meta name="description" content="Datenschutzerklärung der Honestas Capital Beteiligungs GmbH.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F4F6F8;color:#1A1F21;font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:#8E9AA6;text-decoration:none}
+a:hover{color:#7F8C99}
+h1,h2,h3,h4,p,ul,figure{margin:0}
+ul{padding:0;list-style:none}
+button{font:inherit;color:inherit;cursor:pointer}
+input,textarea,select{font:inherit}
+::selection{background:#8E9AA6;color:#1A1F21}
+
+/* --- Bewegung / Einblenden --- */
+@keyframes hc-spin{to{transform:rotate(360deg)}}
+@keyframes hc-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+@keyframes hc-pulse{0%,100%{opacity:.35}50%{opacity:.75}}
+@keyframes hc-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes hc-dash{to{stroke-dashoffset:-48}}
+.hc-flow path{stroke-dasharray:5 7;animation:hc-dash 3.2s linear infinite}
+.hc-spin{animation:hc-spin 90s linear infinite;transform-origin:50% 50%}
+.hc-spin-rev{animation:hc-spin 60s linear infinite reverse;transform-origin:50% 50%}
+.hc-float{animation:hc-float 11s ease-in-out infinite}
+.hc-pulse{animation:hc-pulse 6s ease-in-out infinite}
+.js [data-reveal]{opacity:0;transform:translateY(26px)}
+.js [data-reveal].in{opacity:1;transform:none;transition:opacity .8s cubic-bezier(.16,.8,.3,1),transform .8s cubic-bezier(.16,.8,.3,1)}
+.js [data-reveal][data-d="1"].in{transition-delay:.09s}
+.js [data-reveal][data-d="2"].in{transition-delay:.18s}
+.js [data-reveal][data-d="3"].in{transition-delay:.27s}
+.no-motion *,.no-motion *::before,.no-motion *::after{animation:none !important;transition:none !important}
+.no-motion [data-reveal]{opacity:1 !important;transform:none !important}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition-duration:.01ms !important}
+  [data-reveal]{opacity:1 !important;transform:none !important}
+}
+
+/* --- Interaktionen --- */
+.hc-lift{transition:transform .45s cubic-bezier(.16,.8,.3,1),box-shadow .45s,border-color .45s}
+.hc-lift:hover{transform:translateY(-6px);box-shadow:0 28px 70px -30px rgba(26,31,33,.16)}
+.hc-btn{transition:transform .25s cubic-bezier(.16,.8,.3,1),background-color .25s,border-color .25s,color .25s}
+.hc-btn:hover{transform:translateY(-2px)}
+.hc-btn:active{transform:translateY(0)}
+.hc-nav a{transition:color .25s}
+.hc-arrow{transition:transform .35s cubic-bezier(.16,.8,.3,1)}
+.hc-btn:hover .hc-arrow{transform:translateX(5px)}
+.hc-underline{position:relative}
+.hc-underline::after{content:"";position:absolute;left:0;right:100%;bottom:-3px;height:1px;background:currentColor;transition:right .4s cubic-bezier(.16,.8,.3,1)}
+.hc-underline:hover::after{right:0}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #8E9AA6;outline-offset:3px;border-radius:4px}
+input::placeholder,textarea::placeholder{color:#8A9496}
+.hc-field{transition:border-color .25s,background-color .25s}
+.hc-field:focus{border-color:#8E9AA6 !important;background:rgba(127,140,153,.05) !important}
+
+/* --- Responsiv --- */
+@media (max-width:1080px){
+  .hc-split{grid-template-columns:minmax(0,1fr) !important;gap:40px !important}
+  .hc-sticky{position:static !important}
+  .hc-hero-pad{padding-top:104px !important;padding-bottom:88px !important}
+}
+@media (max-width:860px){
+  .hc-nav{display:none !important}
+  .hc-wrap{padding-left:22px !important;padding-right:22px !important}
+  .hc-contact{grid-template-columns:minmax(0,1fr) !important}
+  .hc-fitrow{grid-template-columns:minmax(0,1fr) !important}
+  .hc-deco{display:none !important}
+}
+@media (max-width:560px){
+  .hc-row2{grid-template-columns:minmax(0,1fr) !important}
+  .hc-cta{width:100% !important;justify-content:center !important}
+}
+
+/* --- Interaktive Elemente (Zustände per Klasse / ARIA statt Inline-Stil) --- */
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (max-width:1000px){.hc-nav{display:none !important}}
+.hc-navlink{white-space:nowrap;display:block;font-size:14px;font-weight:500;padding:9px 14px;border-radius:999px;color:#556163;background:transparent}
+.hc-navlink.on{color:var(--acc);background:rgba(127,140,153,.10)}
+.hc-pill{background:rgba(26,31,33,.04);color:#2F383A;border:1px solid rgba(26,31,33,.13);font-size:14px;font-weight:500;padding:10px 18px;border-radius:999px;text-align:left}
+.hc-pill[aria-pressed="true"]{background:var(--acc);color:#1A1F21;border-color:var(--acc);font-weight:600}
+.hc-step{width:100%;text-align:left;display:block;border-radius:20px;padding:24px 26px;transition:background-color .35s,border-color .35s;background:rgba(26,31,33,.022);border:1px solid rgba(26,31,33,.08)}
+.hc-step[aria-expanded="true"]{background:linear-gradient(170deg,#FFFFFF,#FFFFFF);border-color:rgba(127,140,153,.30)}
+.hc-badge{flex-shrink:0;width:40px;height:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:600;letter-spacing:-.02em;font-size:19px;background:rgba(26,31,33,.06);color:#687375;border:1px solid rgba(26,31,33,.10)}
+.hc-step[aria-expanded="true"] .hc-badge{background:var(--acc);color:#1A1F21;border-color:var(--acc)}
+.hc-chev{flex-shrink:0;transition:transform .35s cubic-bezier(.16,.8,.3,1);color:#737E80}
+.hc-step[aria-expanded="true"] .hc-chev{color:var(--acc);transform:rotate(180deg)}
+.hc-tag{font-size:12.5px;letter-spacing:.04em;color:#2F383A;background:rgba(26,31,33,.06);border:1px solid rgba(26,31,33,.09);padding:6px 12px;border-radius:999px}
+[hidden]{display:none !important}
+@media (max-width:560px){
+  .hc-steppanel{padding-left:0 !important}
+  .hc-headrow{gap:14px !important}
+  .hc-logo{height:30px !important}
+  .hc-headcta{font-size:13px !important;padding:9px 15px !important;gap:7px !important}
+}
+@media (max-width:360px){.hc-headcta .hc-arrow{display:none}}
+
+/* --- SHARED START: Kopfzeile, mobiles Menü, Buttons --- */
+.hc-navlink{border-radius:8px}
+.hc-menu-btn{display:none;width:42px;height:42px;flex-shrink:0;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-radius:8px;border:1px solid rgba(26,31,33,.14);background:rgba(26,31,33,.04)}
+.hc-menu-btn span{display:block;width:18px;height:1.6px;border-radius:2px;background:#1A1F21;transition:transform .3s cubic-bezier(.16,.8,.3,1)}
+.hc-menu-btn[aria-expanded="true"] span:first-child{transform:translateY(3.8px) rotate(45deg)}
+.hc-menu-btn[aria-expanded="true"] span:last-child{transform:translateY(-3.8px) rotate(-45deg)}
+.hc-mnav{position:absolute;left:0;right:0;top:100%;display:flex;flex-direction:column;padding:8px 22px 22px;background:#F4F6F8;border-bottom:1px solid rgba(26,31,33,.1);box-shadow:0 30px 60px -30px rgba(26,31,33,.16)}
+.hc-mnav[hidden]{display:none !important}
+.hc-mnav a{padding:15px 2px;font-size:18px;font-weight:600;color:#1A1F21;border-bottom:1px solid rgba(26,31,33,.07)}
+.hc-mnav a:hover{color:var(--acc)}
+@media (max-width:1000px){.hc-menu-btn{display:inline-flex}.hc-headrow{gap:14px !important}}
+@media (min-width:1001px){.hc-mnav{display:none !important}}
+@media (max-width:480px){.hc-headcta{display:none !important}}
+.hc-lang{margin-left:auto;display:inline-flex;flex-shrink:0;padding:3px;border-radius:8px;border:1px solid rgba(26,31,33,.14);background:rgba(26,31,33,.04)}
+.hc-lang button{padding:6px 9px;border:0;border-radius:6px;background:none;font-size:12.5px;font-weight:600;letter-spacing:.06em;color:#687375;transition:color .25s,background-color .25s}
+.hc-lang button:hover{color:#1A1F21}
+.hc-lang button[aria-pressed="true"]{background:#1A1F21;color:#1A1F21}
+.hc-cta2{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:8px;font-size:15px;font-weight:500;color:#1A1F21;border:1px solid rgba(127,140,153,.45);background:rgba(127,140,153,.06);transition:background-color .3s,border-color .3s,color .3s,transform .3s}
+.hc-cta2:hover{color:#000;background:rgba(127,140,153,.16);border-color:#7F8C99;transform:translateY(-2px)}
+.hc-cta2:hover .hc-arrow{transform:translateX(4px)}
+.hc-tag{border-radius:6px !important}
+/* --- SHARED END --- */
+/* --- Rechtstexte --- */
+.hc-legal{padding:56px 0 110px}
+.hc-legal-back{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#5C6769}
+.hc-legal h1{margin-top:28px;font-size:clamp(36px,4.6vw,60px);font-weight:600;line-height:1.05;letter-spacing:-.035em}
+.hc-legal-lead{margin-top:16px;font-size:16px;color:#5C6769}
+.hc-legal-body{margin-top:48px;max-width:760px}
+.hc-legal-body h2{margin-top:44px;font-size:21px;font-weight:600;letter-spacing:-.015em;color:#1A1F21}
+.hc-legal-body h2:first-child{margin-top:0}
+.hc-legal-body h3{margin-top:22px;font-size:16px;font-weight:600;color:#1A1F21}
+.hc-legal-body p,.hc-legal-body li{margin-top:12px;font-size:15.5px;line-height:1.75;color:#435052}
+.hc-legal-body ul{margin-top:8px;padding-left:0;list-style:none}
+.hc-legal-body li{position:relative;padding-left:20px;margin-top:8px}
+.hc-legal-body li::before{content:"";position:absolute;left:0;top:.8em;width:9px;height:1px;background:var(--acc)}
+.hc-legal-body dl{margin-top:16px;display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);border-top:1px solid rgba(26,31,33,.08)}
+.hc-legal-body dt,.hc-legal-body dd{margin:0;padding:12px 0;border-bottom:1px solid rgba(26,31,33,.08);font-size:15px;line-height:1.6}
+.hc-legal-body dt{color:#737E80;padding-right:20px}
+.hc-legal-body dd{color:#1A1F21}
+.hc-todo{display:inline-block;padding:1px 8px;border-radius:5px;border:1px dashed rgba(127,140,153,.7);color:#7F8C99;font-size:.92em}
+.hc-legal-note{margin-top:48px;padding:16px 18px;border-radius:8px;border:1px dashed rgba(127,140,153,.45);font-size:14px;line-height:1.6;color:#2F383A}
+@media (max-width:640px){.hc-legal-body dl{grid-template-columns:minmax(0,1fr)}.hc-legal-body dt{border-bottom:0;padding-bottom:0}}
+
+/* ═════ Helle Version: Feinabstimmung ═════ */
+.hc-logo{filter:brightness(0)}
+.hc-mq-item img{filter:brightness(0);opacity:.62}
+.hc-mq-item:hover img,.hc-mq-item.on img{opacity:.95}
+.hc-mq-logo{border:1px solid rgba(26,31,33,.1)}
+.hc-gold,.hc-kpi-num>span{background:linear-gradient(100deg,#C3CCD5 0%,#7F8C99 50%,#5E6B78 100%);-webkit-background-clip:text;background-clip:text}
+.hc-lang button[aria-pressed="true"]{background:#1A1F21;color:#FFFFFF}
+.hc-kpi-bg img{filter:grayscale(1) brightness(1.08) contrast(.85)}
+.hc-faq-bg img{filter:grayscale(1) brightness(1.12) contrast(.85)}
+.hc-faq-item{background:rgba(255,255,255,.72)}
+.hc-faq-item.open{background:rgba(255,255,255,.9)}
+header{box-shadow:0 1px 0 rgba(26,31,33,.04)}
+.hc-bk,.hc-tl-card,.hc-mq-card,.hc-co-viz,#kontakt form{box-shadow:0 18px 40px -28px rgba(26,31,33,.25)}
+::selection{color:#1A1F21}
+
+/* ═════ Helle Version: Stahl-Silber statt Gold ═════ */
+.hc-gold{background:linear-gradient(100deg,#9AA7B4 0%,#5E6B78 55%,#38424B 100%) !important;-webkit-background-clip:text !important;background-clip:text !important}
+.hc-headcta,#kontakt button[type="submit"],.hc-co-thumb,.hc-faq-q[aria-expanded="true"] .hc-faq-ico,.hc-tl-step.on .hc-tl-dot{background:linear-gradient(180deg,#DDE3E9 0%,#A9B4BF 50%,#7F8C99 100%) !important;color:#12171A !important;border-color:#8E9AA6 !important}
+.hc-headcta,#kontakt button[type="submit"]{box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 8px 22px -12px rgba(46,54,62,.5)}
+.hc-tl-fill{background:linear-gradient(180deg,#C3CCD5,#6B7783) !important;box-shadow:0 0 12px rgba(127,140,153,.5) !important}
+.hc-kpi-seg i{background:linear-gradient(90deg,#A9B4BF,#5E6B78) !important}
+.hc-bk::before{background:linear-gradient(90deg,#8E9AA6,#DDE3E9,#8E9AA6) !important}
+.hc-bk-ico,.hc-fx-num{color:#5E6B78 !important}
+a{color:#4F5B67}
+a:hover{color:#1A1F21}
+::selection{background:#B8C2CC}
+
+.hc-sbg img,.hc-kpi-bg img,.hc-faq-bg img{filter:grayscale(1) brightness(1.08) contrast(.9) !important}
+</style>
+</head>
+<body id="top">
+<div class="hc-root" id="hc-root" style="--acc:#7F8C99; width:100%;min-height:100%;background:#F4F6F8;color:#1A1F21;overflow-x:clip;">
+
+  <!-- ══════════ KOPF / NAVIGATION ══════════ -->
+  <header style="position:sticky;top:0;z-index:60;background:rgba(244,246,248,.8);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(26,31,33,.08);">
+    <div class="hc-wrap hc-headrow" style="max-width:1220px;margin:0 auto;padding:0 40px;height:74px;display:flex;align-items:center;gap:32px;">
+
+      <a href="index.html" style="display:flex;align-items:center;flex-shrink:0;">
+        <img src="./assets/267377288f64b8e2dc1dda8ae61cc1df.png" alt="honestas.capital — Grow Your Future" class="hc-logo" style="display:block;height:42px;width:auto;">
+      </a>
+
+      <nav class="hc-nav" aria-label="Hauptnavigation" style="margin-left:auto;">
+        <ul style="display:flex;align-items:center;gap:6px;">
+          <li><a class="hc-navlink" href="index.html" data-nav="start">Home</a></li>
+          <li><a class="hc-navlink" href="index.html#portfolio" data-nav="portfolio">Portfolio</a></li>
+          <li><a class="hc-navlink" href="index.html#team" data-nav="team">Team</a></li>
+          <li><a class="hc-navlink" href="index.html#kontakt" data-nav="kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div class="hc-lang" role="group" aria-label="Sprache wählen"><button type="button" data-lang="de" aria-pressed="true" aria-label="Deutsch">DE</button><button type="button" data-lang="en" aria-pressed="false" aria-label="Englisch">EN</button></div>
+
+      <a class="hc-btn hc-headcta" href="index.html#kontakt" style="margin-left:0;white-space:nowrap;display:inline-flex;align-items:center;gap:9px;background:var(--acc);color:#1A1F21;font-size:14px;font-weight:600;padding:11px 18px;border-radius:8px;flex-shrink:0;">
+        <svg width="15" height="15" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3.5 5.5h13v9h-13z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path><path d="m4 6 6 4.6L16 6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path></svg>
+        Kontakt aufnehmen
+      </a>
+
+      <button type="button" class="hc-menu-btn" aria-expanded="false" aria-controls="hc-mnav" aria-label="Menü öffnen"><span></span><span></span></button>
+    </div>
+
+    <nav class="hc-mnav" id="hc-mnav" aria-label="Navigation" hidden>
+      <a href="index.html">Home</a>
+      <a href="index.html#portfolio">Portfolio</a>
+      <a href="index.html#team">Team</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </nav>
+
+    <div style="position:absolute;left:0;right:0;bottom:-1px;height:2px;background:rgba(26,31,33,.06);overflow:hidden;">
+      <div id="hc-bar" style="height:100%;background:var(--acc);transform:scaleX(0);transform-origin:0 50%;"></div>
+    </div>
+  </header>
+
+  <main class="hc-legal">
+    <div class="hc-wrap" style="max-width:1220px;margin:0 auto;padding:0 40px;">
+      <a class="hc-legal-back hc-underline" href="index.html"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M12 7H2M6 3 2 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>Zur Startseite</a>
+      <h1>Datenschutzerklärung</h1>
+      <p class="hc-legal-lead">Stand: Oktober 2026</p>
+      <div class="hc-legal-body">
+        <h2>1. Verantwortlicher</h2>
+        <p>Honestas Capital Beteiligungs GmbH, Wagenseilgasse 5, 1120 Wien, Österreich<br>
+        E-Mail: <a class="hc-underline" href="mailto:office@honestas.capital">office@honestas.capital</a> · Telefon: <a class="hc-underline" href="tel:+436644002933">+43 664 4002933</a></p>
+
+        <h2>2. Allgemeines</h2>
+        <p>Der Schutz deiner personenbezogenen Daten ist uns wichtig. Wir verarbeiten Daten ausschließlich auf Grundlage der gesetzlichen Bestimmungen, insbesondere der Datenschutz-Grundverordnung (DSGVO) und des österreichischen Datenschutzgesetzes (DSG). In dieser Erklärung informieren wir dich, welche Daten beim Besuch dieser Website verarbeitet werden.</p>
+
+        <h2>3. Hosting und Server-Logfiles</h2>
+        <p>Diese Website wird bei <span class="hc-todo">[Hosting-Anbieter ergänzen]</span> betrieben. Beim Aufruf der Website werden durch den Webserver technisch notwendige Daten verarbeitet, etwa IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite, Browser und Betriebssystem. Diese Daten dienen dem sicheren und stabilen Betrieb der Website (Art. 6 Abs. 1 lit. f DSGVO) und werden nach <span class="hc-todo">[Speicherdauer ergänzen]</span> gelöscht.</p>
+
+        <h2>4. Kontaktaufnahme</h2>
+        <p>Wenn du uns per E-Mail oder Telefon kontaktierst, verarbeiten wir die von dir übermittelten Daten (z. B. Name, E-Mail-Adresse, Unternehmen, Inhalt der Anfrage), um deine Anfrage zu bearbeiten (Art. 6 Abs. 1 lit. b und f DSGVO).</p>
+        <p>Das Kontaktformular auf unserer Website überträgt keine Daten an einen Server: Beim Absenden öffnet sich dein E-Mail-Programm mit einer vorbereiteten Nachricht an uns. Erst wenn du diese E-Mail selbst abschickst, erhalten wir deine Angaben.</p>
+        <p>Wir speichern Anfragen so lange, wie es zur Bearbeitung und für eine mögliche Zusammenarbeit erforderlich ist, bzw. solange gesetzliche Aufbewahrungspflichten bestehen.</p>
+
+        <h2>5. Cookies und Tracking</h2>
+        <p>Diese Website verwendet keine Cookies, keine Analyse- oder Tracking-Werkzeuge und keine Social-Media-Plugins.</p>
+
+        <h2>6. Externe Inhalte</h2>
+        <h3>Google Fonts</h3>
+        <p>Zur einheitlichen Darstellung der Schrift binden wir „Inter“ über Google Fonts ein (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland). Dabei wird deine IP-Adresse an Google übermittelt; eine Übermittlung in die USA kann nicht ausgeschlossen werden. Rechtsgrundlage ist unser berechtigtes Interesse an einer einheitlichen Darstellung (Art. 6 Abs. 1 lit. f DSGVO). <span class="hc-todo">[Empfehlung: Schrift lokal einbinden, dann entfällt dieser Abschnitt]</span></p>
+        <h3>Bilder von Unsplash</h3>
+        <p>Einige Fotos werden direkt von den Servern von Unsplash (Unsplash Inc., USA) geladen. Dabei wird deine IP-Adresse an Unsplash übermittelt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. <span class="hc-todo">[Empfehlung: Bilder lokal speichern, dann entfällt dieser Abschnitt]</span></p>
+        <h3>Links zu anderen Websites</h3>
+        <p>Links zu LinkedIn oder zu den Websites unserer Portfoliounternehmen sind einfache Verweise. Erst wenn du einen Link anklickst, werden Daten an den jeweiligen Anbieter übertragen; dort gelten dessen Datenschutzbestimmungen.</p>
+
+        <h2>7. Deine Rechte</h2>
+        <p>Dir stehen grundsätzlich folgende Rechte zu:</p>
+        <ul>
+          <li>Auskunft über die zu deiner Person gespeicherten Daten (Art. 15 DSGVO)</li>
+          <li>Berichtigung unrichtiger Daten (Art. 16 DSGVO)</li>
+          <li>Löschung (Art. 17 DSGVO) und Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+          <li>Datenübertragbarkeit (Art. 20 DSGVO)</li>
+          <li>Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</li>
+        </ul>
+        <p>Für die Ausübung deiner Rechte genügt eine E-Mail an <a class="hc-underline" href="mailto:office@honestas.capital">office@honestas.capital</a>.</p>
+
+        <h2>8. Beschwerderecht</h2>
+        <p>Wenn du der Ansicht bist, dass die Verarbeitung deiner Daten gegen das Datenschutzrecht verstößt, kannst du dich bei der Aufsichtsbehörde beschweren. In Österreich ist dies die Datenschutzbehörde, Barichgasse 40–42, 1030 Wien, <a class="hc-underline" href="https://www.dsb.gv.at" target="_blank" rel="noopener noreferrer">www.dsb.gv.at</a>.</p>
+
+        <p class="hc-legal-note">Hinweis: Diese Datenschutzerklärung ist auf den aktuellen Stand der Website zugeschnitten. Die markierten Stellen bitte ergänzen und den Text vor der Veröffentlichung rechtlich prüfen lassen.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- ══════════ FUSSZEILE ══════════ -->
+  <footer id="footer" style="border-top:1px solid rgba(26,31,33,.08);padding:46px 0;">
+    <div class="hc-wrap" style="max-width:1220px;margin:0 auto;padding:0 40px;display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between;">
+      <p style="font-size:13.5px;color:#7D8789;">© 2026 Honestas Capital Beteiligungs GmbH · Wien</p>
+      <ul style="display:flex;flex-wrap:wrap;gap:26px;">
+        <li><a class="hc-underline" href="https://sales.exchange" target="_blank" rel="noopener noreferrer" style="font-size:13.5px;color:#687375;">sales.exchange</a></li>
+        <li><a class="hc-underline" href="impressum.html" style="font-size:13.5px;color:#687375;">Impressum</a></li>
+        <li><a class="hc-underline" href="datenschutz.html" style="font-size:13.5px;color:#687375;">Datenschutz</a></li>
+        <li><a class="hc-underline" href="#top" style="font-size:13.5px;color:#687375;">Nach oben</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</div>
+<script src="assets/i18n.js"></script>
+<script>
+(function () {
+  var bar = document.getElementById('hc-bar');
+  function onScroll() {
+    var span = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.transform = 'scaleX(' + (span > 0 ? Math.max(0, Math.min(1, window.pageYOffset / span)) : 0) + ')';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  var mb = document.querySelector('.hc-menu-btn'), mn = document.getElementById('hc-mnav');
+  function setMenu(open) { mb.setAttribute('aria-expanded', open ? 'true' : 'false'); var lbl = open ? 'Menü schließen' : 'Menü öffnen'; mb.setAttribute('aria-label', window.hcT ? window.hcT(lbl) : lbl); mn.hidden = !open; }
+  mb.addEventListener('click', function () { setMenu(mn.hidden); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+})();
+</script>
+</body>
+</html>
